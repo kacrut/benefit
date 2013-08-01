@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "ListAll";
+}
+
+<h2>List All BU</h2>
+<div>
+    CABANG
+</div>
+ <div>
+    @Html.DropDownList("KDKC", String.Empty)
+</div>
+<div id="StudentTableContainer"></div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        
+        $("#KDKC").change(function () {
+            x = $("#KDKC").val();
+            $('#StudentTableContainer').jtable('load', { KDKC: x});
+        });
+        $('#StudentTableContainer').jtable({
+            title: 'Setting BU List',
+            paging: true,
+            pageSize: 50,
+            sorting: false,
+            defaultSorting: 'Name ASC',
+            actions: {
+                listAction: '/InfoSettingBU/BuList'
+            },
+            fields: {
+                NOMOR: {
+                    title: 'NOMOR'
+                },
+                PKSKD: {
+                    title: 'PKSKD'
+                },
+                PKSNM: {
+                    title: 'PKSNM',
+                    width: '40%',
+                },
+                PolisPegawaiName: {
+                    title: 'PolisPegawaiName'
+                },
+                PMaxAge: {
+                    title: 'PMaxAge'
+                },
+                PMinAge: {
+                    title: 'PMinAge'
+                },
+                IMaxAge: {
+                    title: 'IMaxAge'
+                },
+                IMinAge: {
+                    title: 'IMinAge'
+                },
+                SMaxAge: {
+                    title: 'SMaxAge'
+                },
+                SMinAge: {
+                    title: 'SMinAge'
+                },
+                AMaxAge: {
+                    title: 'AMaxAge'
+                },
+                AMinAge: {
+                    title: 'AMinAge'
+                },
+                MaxChild: {
+                    title: 'MaxChild'
+                },
+                CaraBayarName: {
+                    title: 'CaraBayarName'
+                },
+                Installment: {
+                    title: 'Installment'
+                }
+            }
+        });
+    });
+</script>

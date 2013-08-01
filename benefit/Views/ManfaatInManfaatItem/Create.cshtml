@@ -1,0 +1,40 @@
+﻿@model benefit.Models.ManfaatInManfaatItem
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>ManfaatInManfaatItem</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ManfaatID, "Manfaat")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ManfaatID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ManfaatID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ManfaatItemID, "ManfaatItem")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ManfaatItemID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ManfaatItemID)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

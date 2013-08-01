@@ -1,0 +1,60 @@
+﻿@model IEnumerable<benefit.Models.vwInfoBenefit>
+<h2>Detail Benefit BU</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>NMPROD</th>
+            <th>NMKLSRWT</th>
+            <th>MANFAAT</th>
+            <th>IsCaseLess</th>
+            <th>IsReimburse</th>
+            <th>Amount</th>
+            <th>ManfaatPISAName</th>
+            <th>FreqCaseName</th>
+            <th>FreqPeriodeName</th>
+            <th>FreqCount</th>
+            <th></th>
+        </tr>
+    </thead>
+<tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NMPROD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NMKLSRWT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MANFAAT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsCaseLess)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsReimburse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ManfaatPISAName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FreqCaseName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FreqPeriodeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FreqCount)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.infoBenefitBUID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.infoBenefitBUID })
+        </td>
+    </tr>
+}
+</tbody>
+
+</table>

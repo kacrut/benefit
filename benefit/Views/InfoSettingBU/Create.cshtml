@@ -1,0 +1,186 @@
+﻿@model benefit.Models.InfoSettingBU
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>InfoSettingBU</legend>
+        <div>
+            Cabang
+        </div>
+        <div>
+            @*@Html.EditorFor(model => model.PKSKD)*@
+            @Html.DropDownList("KDKC", String.Empty)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.POLIS)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.POLIS)
+            @Html.ValidationMessageFor(model => model.POLIS)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.PKSKD)
+        </div>
+        <div>
+            <select id="PKSKD" name="PKSKD" class="span6" placeholder=".span6"></select>
+            @Html.ValidationMessageFor(model => model.PKSKD)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.PolisPegawaiID, "PolisPegawai")
+        </div>
+        <div>
+            @Html.DropDownList("PolisPegawaiID", String.Empty)
+            @Html.ValidationMessageFor(model => model.PolisPegawaiID)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.PMaxAge)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.PMaxAge)
+            @Html.ValidationMessageFor(model => model.PMaxAge)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.PMinAge)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.PMinAge)
+            @Html.ValidationMessageFor(model => model.PMinAge)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.IMaxAge)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.IMaxAge)
+            @Html.ValidationMessageFor(model => model.IMaxAge)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.IMinAge)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.IMinAge)
+            @Html.ValidationMessageFor(model => model.IMinAge)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.SMaxAge)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.SMaxAge)
+            @Html.ValidationMessageFor(model => model.SMaxAge)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.SMinAge)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.SMinAge)
+            @Html.ValidationMessageFor(model => model.SMinAge)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.AMaxAge)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.AMaxAge)
+            @Html.ValidationMessageFor(model => model.AMaxAge)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.AMinAge)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.AMinAge)
+            @Html.ValidationMessageFor(model => model.AMinAge)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.MaxChild)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.MaxChild)
+            @Html.ValidationMessageFor(model => model.MaxChild)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.CaraBayarID, "CaraBayar")
+        </div>
+        <div>
+            @Html.DropDownList("CaraBayarID", String.Empty)
+            @Html.ValidationMessageFor(model => model.CaraBayarID)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.Installment)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.Installment)
+            @Html.ValidationMessageFor(model => model.Installment)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<div id="ajaxLoader" style="display:none">
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(function () {
+            $("#PKSKD").searchable();
+        })
+        $("#KDKC").change(function () {
+            $("#ajaxLoader").show();
+            GetBU();
+        });
+
+        $("#PKSKD").change(function () {
+            $("#ajaxLoader").show();
+            GetPolis();
+        });
+
+        function GetBU() {
+            var KDKC = $("#KDKC").val();
+            var url = "@Url.Action("GetBU", "InfoBenefitBU")";
+            $.getJSON(url, { kdkc: KDKC },
+               function (data) {
+                   var items;
+                   $.each(data, function (i, item) {
+                       items += "<option value='" + item.PKSKD + "'>" + item.PKSNM + "</option>";
+                   });
+                   $("#PKSKD").html(items);
+                   GetPolis();
+                   $("#ajaxLoader").hide();
+               });
+        };
+
+        function GetPolis() {
+            var url = "@Url.Action("GetPolis", "InfoBenefitBU")";
+            var PKSKD = $("#PKSKD").val();
+            $.getJSON(url, { pkskd: PKSKD},
+               function (data) {
+                   $("#POLIS").val(data);
+                   $("#ajaxLoader").hide();
+               });
+        };
+    });
+</script>
+

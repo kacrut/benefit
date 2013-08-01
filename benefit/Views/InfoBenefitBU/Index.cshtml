@@ -1,0 +1,50 @@
+﻿@model IEnumerable<benefit.Models.vwInfoBenefit>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="bordered">
+    <thead>
+        <tr class="bg-color-blueLight">
+            <th>
+                Cabang
+            </th>
+            <th>
+                Polis
+            </th>
+            <th>
+                Kode BU
+            </th>
+            <th>
+                Nama BU
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+<tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NMKC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.POLIS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PKSKD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PKSNM)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.infoBenefitBUID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.infoBenefitBUID })
+        </td>
+    </tr>
+}
+</tbody>
+
+</table>

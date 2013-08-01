@@ -1,0 +1,207 @@
+﻿@model IEnumerable<benefit.Models.vwInfoBenefit>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.infoBenefitBUID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KDKC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NMKC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.POLIS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PKSKD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PKSNM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PKSTGLML)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PKSTGLAKH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NMPROD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NMKLSRWT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MANFAAT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsCaseLess)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsReimburse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ManfaatPISAName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FreqCaseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FreqPeriodeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FreqCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PolisPegawaiName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PMaxAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PMinAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IMaxAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IMinAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMaxAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMinAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AMaxAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AMinAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxChild)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CaraBayarName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Installment)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.infoBenefitBUID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KDKC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NMKC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.POLIS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PKSKD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PKSNM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PKSTGLML)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PKSTGLAKH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NMPROD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NMKLSRWT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MANFAAT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsCaseLess)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsReimburse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ManfaatPISAName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FreqCaseName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FreqPeriodeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FreqCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PolisPegawaiName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PMaxAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PMinAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IMaxAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IMinAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMaxAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMinAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AMaxAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AMinAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxChild)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CaraBayarName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Installment)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

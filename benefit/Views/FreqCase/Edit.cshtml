@@ -1,0 +1,34 @@
+﻿@model benefit.Models.FreqCase
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>FreqCase</legend>
+
+        @Html.HiddenFor(model => model.FreqCaseID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FreqCaseName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FreqCaseName)
+            @Html.ValidationMessageFor(model => model.FreqCaseName)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

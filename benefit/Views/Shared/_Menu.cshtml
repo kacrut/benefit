@@ -1,0 +1,66 @@
+﻿                <div class="nav-collapse collapse">
+                   @* <p class="navbar-text pull-right">Logged in as
+                        <a href="#" class="navbar-link">Username</a>
+                    </p>*@
+                    <ul class="nav">
+                        <li class="active">
+                            @Html.ActionLink("Home","Index","Home")
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Master Data Aktuaria
+                            <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Frekuensi","Index","FreqCase")</li>
+                                <li>@Html.ActionLink("Frekuensi Periode","Index","FreqPeriode")</li>
+                                <li>@Html.ActionLink("Manfaat","Index","Manfaat")</li>
+                                <li>@Html.ActionLink("Item pada Manfaat","Index","ManfaatInManfaatItem")</li>
+                                <li>@Html.ActionLink("Item Manfaat","Index","ManfaatItem")</li>
+                                <li> @Html.ActionLink("PISA","Index","ManfaatPISA")</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Master Data Kepesertaan
+                            <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Cara Bayar","Index","CaraBayar")</li>
+                                <li>@Html.ActionLink("Polis Pegawai","Index","PolisPegawai")</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                           Input
+                            <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Benefit BU","Create","InfoBenefitBU")</li>
+                                <li>@Html.ActionLink("Setting BU","Create","InfoSettingBU")</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                           List
+                            <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("List Benefit Per BU", "List", "InfoBenefitBU")</li>
+                                <li>@Html.ActionLink("List Benefit ALL BU", "ListAll", "InfoBenefitBU")</li>
+                                <li>@Html.ActionLink("List Setting Per BU","List","InfoSettingBU")</li>
+                                <li>@Html.ActionLink("List Setting ALL BU", "ListAll", "InfoSettingBU")</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                           Export
+                            <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Export Benefit BU", "Export", "InfoBenefitBU")</li>
+                                <li>@Html.ActionLink("Export Setting BU", "Export", "InfoSettingBU")</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>

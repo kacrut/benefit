@@ -1,0 +1,100 @@
+﻿@model benefit.Models.InfoBenefitBU
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>InfoBenefitBU</legend>
+        @Html.HiddenFor(model => model.InfoBenefitBUID)
+        @Html.HiddenFor(model => model.POLIS)
+        @Html.HiddenFor(model => model.PKSKD)
+        @Html.HiddenFor(model => model.KDPROD)
+        @Html.HiddenFor(model => model.KDKLSRWT)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ManfaatInManfaatItemID, "ManfaatInManfaatItem")
+        </div>
+        <div class="input-control">
+            @Html.DropDownList("ManfaatInManfaatItemID",String.Empty)
+            @Html.ValidationMessageFor(model => model.ManfaatInManfaatItemID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsCaseLess)
+        </div>
+        <div class="input-control">
+            @Html.EditorFor(model => model.IsCaseLess)
+            @Html.ValidationMessageFor(model => model.IsCaseLess)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsReimburse)
+        </div>
+        <div class="input-control">
+            @Html.EditorFor(model => model.IsReimburse)
+            @Html.ValidationMessageFor(model => model.IsReimburse)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Amount)
+        </div>
+        <div class="input-control">
+            @Html.EditorFor(model => model.Amount)
+            @Html.ValidationMessageFor(model => model.Amount)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ManfaatPISAID, "ManfaatPISA")
+        </div>
+        <div class="input-control">
+            @Html.DropDownList("ManfaatPISAID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ManfaatPISAID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FreqCaseID, "FreqCase")
+        </div>
+        <div class="input-control">
+            @Html.DropDownList("FreqCaseID", String.Empty)
+            @Html.ValidationMessageFor(model => model.FreqCaseID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FreqPeriodeID, "FreqPeriode")
+        </div>
+        <div class="input-control">
+            @Html.DropDownList("FreqPeriodeID", String.Empty)
+            @Html.ValidationMessageFor(model => model.FreqPeriodeID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FreqCount)
+        </div>
+        <div class="input-control">
+            @Html.EditorFor(model => model.FreqCount)
+            @Html.ValidationMessageFor(model => model.FreqCount)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", new { }, new { onclick = "window.history.back()" })
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(function () {
+            $("#Amount").maskMoney({allowZero:true, thousands: '.', decimal: ',',precision: 0 });
+        })})
+</script>

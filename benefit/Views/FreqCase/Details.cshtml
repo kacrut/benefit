@@ -1,0 +1,22 @@
+﻿@model benefit.Models.FreqCase
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>FreqCase</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FreqCaseName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FreqCaseName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.FreqCaseID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

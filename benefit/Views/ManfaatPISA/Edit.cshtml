@@ -1,0 +1,34 @@
+﻿@model benefit.Models.ManfaatPISA
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>ManfaatPISA</legend>
+
+        @Html.HiddenFor(model => model.ManfaatPISAID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ManfaatPISAName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ManfaatPISAName)
+            @Html.ValidationMessageFor(model => model.ManfaatPISAName)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

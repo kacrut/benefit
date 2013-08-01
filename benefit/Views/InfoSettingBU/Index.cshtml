@@ -1,0 +1,111 @@
+﻿@model IEnumerable<benefit.Models.InfoSettingBU>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.POLIS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PKSKD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PolisPegawai.PolisPegawaiName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PMaxAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PMinAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IMaxAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IMinAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMaxAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMinAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AMaxAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AMinAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxChild)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CaraBayar.CaraBayarName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Installment)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.POLIS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PKSKD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PolisPegawai.PolisPegawaiName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PMaxAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PMinAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IMaxAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IMinAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMaxAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMinAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AMaxAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AMinAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxChild)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CaraBayar.CaraBayarName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Installment)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.InfoSettingBUID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.InfoSettingBUID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.InfoSettingBUID })
+        </td>
+    </tr>
+}
+
+</table>

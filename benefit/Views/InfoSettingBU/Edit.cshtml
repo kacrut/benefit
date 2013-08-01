@@ -1,0 +1,124 @@
+﻿@model benefit.Models.InfoSettingBU
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>InfoSettingBU</legend>
+        @Model.InfoSettingBUID
+        @Html.HiddenFor(model => model.InfoSettingBUID)
+        @Html.HiddenFor(model => model.POLIS)
+        @Html.HiddenFor(model => model.PKSKD)
+        @Html.HiddenFor(model => model.InfoSettingBUID)
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PolisPegawaiID, "PolisPegawai")
+        </div>
+        <div class="input-control">
+            @Html.DropDownList("PolisPegawaiID", String.Empty)
+            @Html.ValidationMessageFor(model => model.PolisPegawaiID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PMaxAge)
+        </div>
+        <div class="input-control">
+            @Html.EditorFor(model => model.PMaxAge)
+            @Html.ValidationMessageFor(model => model.PMaxAge)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PMinAge)
+        </div>
+        <div class="input-control">
+            @Html.EditorFor(model => model.PMinAge)
+            @Html.ValidationMessageFor(model => model.PMinAge)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IMaxAge)
+        </div>
+        <div class="input-control">
+            @Html.EditorFor(model => model.IMaxAge)
+            @Html.ValidationMessageFor(model => model.IMaxAge)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IMinAge)
+        </div>
+        <div class="input-control">
+            @Html.EditorFor(model => model.IMinAge)
+            @Html.ValidationMessageFor(model => model.IMinAge)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SMaxAge)
+        </div>
+        <div class="input-control">
+            @Html.EditorFor(model => model.SMaxAge)
+            @Html.ValidationMessageFor(model => model.SMaxAge)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SMinAge)
+        </div>
+        <div class="input-control">
+            @Html.EditorFor(model => model.SMinAge)
+            @Html.ValidationMessageFor(model => model.SMinAge)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AMaxAge)
+        </div>
+        <div class="input-control">
+            @Html.EditorFor(model => model.AMaxAge)
+            @Html.ValidationMessageFor(model => model.AMaxAge)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AMinAge)
+        </div>
+        <div class="input-control">
+            @Html.EditorFor(model => model.AMinAge)
+            @Html.ValidationMessageFor(model => model.AMinAge)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MaxChild)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MaxChild)
+            @Html.ValidationMessageFor(model => model.MaxChild)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CaraBayarID, "CaraBayar")
+        </div>
+        <div class="input-control">
+            @Html.DropDownList("CaraBayarID", String.Empty)
+            @Html.ValidationMessageFor(model => model.CaraBayarID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Installment)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Installment)
+            @Html.ValidationMessageFor(model => model.Installment)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", new { onclick = "window.history.back()" })
+</div>

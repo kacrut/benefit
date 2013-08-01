@@ -1,0 +1,114 @@
+﻿@{
+    ViewBag.Title = "ListAll";
+}
+
+<h2>List All BU</h2>
+<div>
+    CABANG
+</div>
+ <div>
+    @Html.DropDownList("KDKC", String.Empty)
+</div>
+<div id="StudentTableContainer"></div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        
+        var x;
+        console.log(x);
+        $("#KDKC").change(function () {
+            x = $("#KDKC").val();
+            console.log(x);
+            $('#StudentTableContainer').jtable('load', { KDKC: x});
+        });
+        $('#StudentTableContainer').jtable({
+            title: 'BU List',
+            paging: true,
+            sorting: false,
+            defaultSorting: 'Name ASC',
+            actions: {
+                listAction: '/InfoBenefitBU/BuList'
+            },
+            fields: {
+                NOMOR: {
+                    title: '',
+                    sorting: false,
+                    edit: false,
+                    create: false,
+                    width: '2%',
+                    display: function (Data) {
+                        //Create an image that will be used to open child table
+                        var $img = $('<img src="http://www.jtable.org//Content/images/Misc/list_metro.png" title="Benefit BU" />');
+                        //Open child table when user clicks the image
+                        $img.click(function () {
+                            $('#StudentTableContainer').jtable('openChildTable',
+                                    $img.closest('tr'), //Parent row
+                                    {
+                                        title: Data.record.PKSNM,
+                                        actions: {
+                                            listAction: '/InfoBenefitBU/vwInfoBenefit?NOMOR=' + Data.record.NOMOR,
+                                        },
+                                        fields: {
+                                            NMPROD: {
+                                                title: 'NMPROD'
+                                            },
+                                            NMKLSRWT: {
+                                                title: 'NMKLSRWT'
+                                            },
+                                            NamaManfaat: {
+                                                title: 'NamaManfaat',
+                                                width: '15%'
+                                            },
+                                            ManfaatItemName: {
+                                                title: 'ManfaatItemName',
+                                                width: '40%'
+                                            },                                           
+                                            IsCaseLess: {
+                                                title: 'IsCaseLess'
+                                            },
+                                            IsReimburse: {
+                                                title: 'IsReimburse'
+                                            },
+                                            Amount: {
+                                                title: 'Amount'
+                                            },
+                                            ManfaatPISAName: {
+                                                title: 'ManfaatPISAName'
+                                            },
+                                            FreqCaseName: {
+                                                title: 'FreqCaseName'
+                                            },
+                                            FreqPeriodeName: {
+                                                title: 'FreqPeriodeName'
+                                            },
+                                            FreqCount: {
+                                                title: 'FreqCount'
+                                            }
+                                        }
+                                    }, function (data) { //opened handler
+                                        data.childTable.jtable('load');
+                                    });
+                        });
+                        //Return image to show on the person row
+                        return $img;
+                    }
+                },
+                PKSKD: {
+                    title: 'PKSKD'
+                },
+                PKSTGLML: {
+                    title: 'PKSTGLML'
+                },
+                PKSTGLAKH: {
+                    title: 'PKSTGLAKH'
+                },
+                PKSNM: {
+                    title: 'PKSNM',
+                    width: '40%',
+                }
+            }
+        });
+        //Load student list from server
+        //$('#StudentTableContainer').jtable('load');
+    });
+</script>

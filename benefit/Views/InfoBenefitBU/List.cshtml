@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "List";
+}
+
+<h2>Benefit Badan Usaha</h2>
+<fieldset>
+    <legend>Cabang</legend>
+    <div>
+        @Html.DropDownList("KDKC", String.Empty)
+    </div>
+    <div>
+        <select id="PKSKD" name="PKSKD" required="required" class="span6" placeholder=".span6"></select>
+    </div>
+    <div>
+        <input type="submit" id="Cari" name="Cari" value="Cari" class="btn" />
+    </div>
+</fieldset>
+<div id="DetailBenefitBU"></div>
+<script type="text/javascript"> 
+    $(document).ready(function () {
+        $(function () {
+            $("#PKSKD").searchable();
+        })
+
+        $("#KDKC").change(function () {
+            $("#ajaxLoader").show();
+            GetBU();
+        });
+
+        $("#Cari").click(function () {
+            var polis = $('#PKSKD').val();
+            $('#DetailBenefitBU').load("DetailBenefitBU?polis="+ polis);
+        });
+
+        function GetBU() {
+            var KDKC = $("#KDKC").val();
+            var url = "@Url.Action("GetBUInfoBenefitBU", "InfoBenefitBU")";
+            $.getJSON(url, { kdkc: KDKC },
+               function (data) {
+                   var items;
+                   console.log(jQuery.isEmptyObject(data));
+                   if (jQuery.isEmptyObject(data) == true) {
+                       $("#PKSKD").empty();
+                   }
+                   else {
+                       $.each(data, function (i, item) {
+                           items += "<option value='" + item.PKSKD + "'>" + item.PKSKD + " - "+ item.PKSNM + "</option>";
+                       });
+                   }
+                   $("#PKSKD").html(items);
+                   $("#ajaxLoader").hide();
+               });
+        };
+    });
+</script>
+

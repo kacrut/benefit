@@ -1,0 +1,261 @@
+﻿@model benefit.Models.vwInfoBenefit
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<table class="bordered">
+    <thead>
+    </thead>
+    <tbody>
+        <tr><td class="span3 left">Produk</td><td>@Html.DisplayFor(model => model.NMPROD)</td></tr>
+        <tr><td class="span3 left">Kelas Rawat</td><td>@Html.DisplayFor(model => model.NMKLSRWT)</td></tr>
+        <tr><td class="span3 left">Manfaat</td><td>@Html.DisplayFor(model => model.MANFAAT)</td></tr>
+        <tr><td class="span3 left">Caseless?</td><td>@Html.DisplayFor(model => model.IsCaseLess)</td></tr>
+        <tr><td class="span3 left">Reimburse?</td><td>@Html.DisplayFor(model => model.IsReimburse)</td></tr>
+        <tr><td class="span3 left">Amount</td><td>@Html.DisplayFor(model => model.Amount)</td></tr>
+        <tr><td class="span3 left">PISA Tertanggung</td><td>@Html.DisplayFor(model => model.ManfaatPISAName)</td></tr>
+        <tr><td class="span3 left">Benefit Per</td><td>@Html.DisplayFor(model => model.FreqCaseName)</td></tr>
+        <tr><td class="span3 left">Periode Benefit</td><td>@Html.DisplayFor(model => model.FreqPeriodeName)</td></tr>
+        <tr><td class="span3 left">Jumlah Klaim per Periode</td><td>@Html.DisplayFor(model => model.FreqCount)</td></tr>
+        <tr><td class="span3 left">Polis Pegawai...</td><td>@Html.DisplayFor(model => model.PolisPegawaiName)</td></tr>
+    </tbody>
+</table>
+<table class="bordered">
+    <thead>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Peserta</td>
+            <td class="span3 left">Max</td>
+            <td>@Html.DisplayFor(model => model.PMaxAge)</td>
+        </tr>
+        <tr><td class="span3 left">ID</td><td>@Html.DisplayFor(model => model.PMinAge)</td></tr>
+        <tr><td class="span3 left">ID</td><td>@Html.DisplayFor(model => model.IMaxAge)</td></tr>
+        <tr><td class="span3 left">ID</td><td>@Html.DisplayFor(model => model.IMinAge)</td></tr>
+        <tr><td class="span3 left">ID</td><td>@Html.DisplayFor(model => model.SMaxAge)</td></tr>
+        <tr><td class="span3 left">ID</td><td>@Html.DisplayFor(model => model.SMinAge)</td></tr>
+        <tr><td class="span3 left">ID</td><td>@Html.DisplayFor(model => model.AMaxAge)</td></tr>
+        <tr><td class="span3 left">ID</td><td>@Html.DisplayFor(model => model.AMinAge)</td></tr>
+        <tr><td class="span3 left">ID</td><td>@Html.DisplayFor(model => model.MaxChild)</td></tr>
+        <tr><td class="span3 left">ID</td><td>@Html.DisplayFor(model => model.CaraBayarName)</td></tr>
+        <tr><td class="span3 left">ID</td><td>@Html.DisplayFor(model => model.Installment)</td></tr>
+    </tbody>
+</table>
+@*<fieldset>
+    <legend>vwInfoBenefit</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.infoBenefitBUID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.infoBenefitBUID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.KDKC)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.KDKC)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NMKC)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NMKC)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.POLIS)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.POLIS)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PKSKD)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PKSKD)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PKSNM)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PKSNM)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PKSTGLML)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PKSTGLML)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PKSTGLAKH)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PKSTGLAKH)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NMPROD)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NMPROD)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NMKLSRWT)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NMKLSRWT)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MANFAAT)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MANFAAT)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IsCaseLess)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsCaseLess)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IsReimburse)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsReimburse)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Amount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Amount)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ManfaatPISAName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ManfaatPISAName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FreqCaseName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FreqCaseName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FreqPeriodeName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FreqPeriodeName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FreqCount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FreqCount)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PolisPegawaiName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PolisPegawaiName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PMaxAge)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PMaxAge)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PMinAge)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PMinAge)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IMaxAge)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IMaxAge)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IMinAge)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IMinAge)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SMaxAge)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SMaxAge)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SMinAge)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SMinAge)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AMaxAge)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AMaxAge)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AMinAge)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AMinAge)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MaxChild)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MaxChild)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CaraBayarName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CaraBayarName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Installment)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Installment)
+    </div>
+</fieldset>*@
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

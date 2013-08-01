@@ -1,0 +1,208 @@
+﻿@model benefit.Models.InfoBenefitBU
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>InfoBenefitBU</legend>
+        <div>
+            Cabang
+        </div>
+        <div>
+            @*@Html.EditorFor(model => model.PKSKD)*@
+            @Html.DropDownList("KDKC", String.Empty)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.PKSKD)
+        </div>
+        <div>
+            @*@Html.EditorFor(model => model.PKSKD)*@
+            @*@Html.DropDownList("PKSKD", String.Empty)*@
+            <select id="PKSKD" name="PKSKD" class="span6" placeholder=".span6"></select>
+            @Html.ValidationMessageFor(model => model.PKSKD)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.POLIS)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.POLIS, new { @readonly = "true" })
+            @Html.ValidationMessageFor(model => model.POLIS)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.KDPROD)
+        </div>
+        <div>
+           @* @Html.EditorFor(model => model.KDPROD)
+            @Html.ValidationMessageFor(model => model.KDPROD)*@
+            <select id="KDPROD" name="KDPROD"></select>
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.KDKLSRWT)
+        </div>
+        <div>
+            @*@Html.EditorFor(model => model.KDKLSRWT)*@
+            <select id="KDKLSRWT" name="KDKLSRWT"></select>
+            @Html.ValidationMessageFor(model => model.KDKLSRWT)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.ManfaatInManfaatItemID, "ManfaatInManfaatItem")
+        </div>
+        <div>
+            @Html.DropDownList("ManfaatInManfaatItemID", (IEnumerable<SelectListItem>)ViewBag.ManfaatInManfaatItemID, String.Empty, new { @class = "span6",  @placeholder=".span6" })
+            @Html.ValidationMessageFor(model => model.ManfaatInManfaatItemID)
+        </div>
+        <div>
+            CashLess
+        </div>
+        <div>
+            @Html.EditorFor(model => model.IsCaseLess)
+            @Html.ValidationMessageFor(model => model.IsCaseLess)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.IsReimburse)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.IsReimburse)
+            @Html.ValidationMessageFor(model => model.IsReimburse)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.Amount)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.Amount)
+            @Html.ValidationMessageFor(model => model.Amount)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.ManfaatPISAID, "ManfaatPISA")
+        </div>
+        <div>
+            @Html.DropDownList("ManfaatPISAID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ManfaatPISAID)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.FreqCaseID, "FreqCase")
+        </div>
+        <div>
+            @Html.DropDownList("FreqCaseID", String.Empty)
+            @Html.ValidationMessageFor(model => model.FreqCaseID)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.FreqPeriodeID, "FreqPeriode")
+        </div>
+        <div>
+            @Html.DropDownList("FreqPeriodeID", String.Empty)
+            @Html.ValidationMessageFor(model => model.FreqPeriodeID)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.FreqCount)
+        </div>
+
+        <div>
+            @Html.EditorFor(model => model.FreqCount)
+            @Html.ValidationMessageFor(model => model.FreqCount)
+        </div>
+        <div id="result"></div>
+        <p>
+            <input type="submit" value="Create" name="submit" class="btn btn-primary"/>
+        </p>
+    </fieldset>
+}
+<div id="ajaxLoader" style="display:none"></div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(function () {
+            $("#Amount").maskMoney({allowZero:true, thousands: '.', decimal: ',',precision: 0 });
+            $("#PKSKD").searchable();
+            $("#ManfaatInManfaatItemID").searchable();
+        })
+        $("#KDKC").change(function () {
+            $("#ajaxLoader").show();
+            GetBU();
+        });
+
+        $("#PKSKD").change(function () {
+            GetPolis();
+        });
+        $("#KDPROD").change(function () {
+            $("#ajaxLoader").show();
+            GetKelas();
+        });
+
+        function GetBU() {
+            var KDKC = $("#KDKC").val();
+            var url = "@Url.Action("GetBU", "InfoBenefitBU")";
+            $.getJSON(url, { kdkc: KDKC },
+               function (data) {
+                   var items;
+                   $.each(data, function (i, item) {
+                       items += "<option value='" + item.PKSKD + "'>" + item.PKSNM + "</option>";
+                   });
+                   $("#PKSKD").html(items);
+                   GetPolis();
+                   $("#ajaxLoader").hide();
+               });
+        };
+
+        function GetProduk() {
+            var PKSKD = $("#PKSKD").val();
+            var POLIS = $("#POLIS").val();
+            var url = "@Url.Action("GetProduk", "InfoBenefitBU")";
+            $.getJSON(url, { pkskd: PKSKD, polis: POLIS },
+               function (data) {
+                   var items;
+                   $.each(data, function (i, item) {
+                       items += "<option value='" + item.KDPROD + "'>" + item.NMPROD + "</option>";
+                   });
+                   $("#KDPROD").html(items);
+                   GetKelas();
+                   $("#ajaxLoader").hide();
+               });
+        };
+
+        function GetKelas() {
+            var PKSKD = $("#PKSKD").val();
+            var POLIS = $("#POLIS").val();
+            var PRODUK = $("#KDPROD").val();
+            var url = "@Url.Action("GetKelas", "InfoBenefitBU")";
+            $.getJSON(url, { pkskd: PKSKD, polis: POLIS, produk: PRODUK },
+               function (data) {
+                   var items;
+                   $.each(data, function (i, item) {
+                       items += "<option value='" + item.KDKLSRWT + "'>" + item.NMKLSRWT + "</option>";
+                   });
+                   $("#KDKLSRWT").html(items);
+                   $("#ajaxLoader").hide();
+               });
+        };
+
+        function GetPolis() {
+            var url = "@Url.Action("GetPolis", "InfoBenefitBU")";
+            var PKSKD = $("#PKSKD").val();
+            $.getJSON(url, { pkskd: PKSKD},
+               function (data) {
+                   $("#POLIS").val(data);
+                   GetProduk();
+                   $("#ajaxLoader").hide();
+               });
+        };
+    });
+    
+</script>
+

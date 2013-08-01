@@ -1,0 +1,68 @@
+﻿@model IEnumerable<benefit.Models.vwInfoSettingBU>
+<h2>Detail Setting BU</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>PolisPegawaiName</th>
+            <th>PMaxAge</th>
+            <th>PMinAge</th>
+            <th>IMaxAge</th>
+            <th>IMinAge</th>
+            <th>SMaxAge</th>
+            <th>SMinAge</th>
+            <th>AMaxAge</th>
+            <th>AMinAge</th>
+            <th>MaxChild</th>
+            <th>CaraBayarName</th>
+            <th>Installment</th>
+            <th></th>
+        </tr>
+    </thead>
+<tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PolisPegawaiName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PMaxAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PMinAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IMaxAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IMinAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMaxAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMinAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AMaxAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AMinAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxChild)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CaraBayarName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Installment)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.InfoSettingBUID }) | 
+            @Html.ActionLink("Delete", "Delete", new { id=item.InfoSettingBUID })
+        </td>
+    </tr>
+}
+</tbody>
+
+</table>

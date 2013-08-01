@@ -1,0 +1,39 @@
+﻿@model IEnumerable<benefit.Models.ManfaatInManfaatItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Manfaat.NamaManfaat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ManfaatItem.ManfaatItemName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Manfaat.NamaManfaat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ManfaatItem.ManfaatItemName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ManfaatInManfaatItemID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ManfaatInManfaatItemID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ManfaatInManfaatItemID })
+        </td>
+    </tr>
+}
+
+</table>

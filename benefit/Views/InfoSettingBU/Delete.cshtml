@@ -1,0 +1,117 @@
+﻿@model benefit.Models.InfoSettingBU
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>InfoSettingBU</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.POLIS)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.POLIS)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PKSKD)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PKSKD)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PolisPegawai.PolisPegawaiName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PolisPegawai.PolisPegawaiName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PMaxAge)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PMaxAge)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PMinAge)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PMinAge)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IMaxAge)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IMaxAge)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IMinAge)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IMinAge)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SMaxAge)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SMaxAge)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SMinAge)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SMinAge)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AMaxAge)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AMaxAge)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AMinAge)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AMinAge)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MaxChild)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MaxChild)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CaraBayar.CaraBayarName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CaraBayar.CaraBayarName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Installment)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Installment)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

@@ -1,0 +1,22 @@
+﻿@model benefit.Models.ManfaatItem
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ManfaatItem</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ManfaatItemName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ManfaatItemName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ManfaatItemID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

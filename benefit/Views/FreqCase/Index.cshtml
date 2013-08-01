@@ -1,0 +1,33 @@
+﻿@model IEnumerable<benefit.Models.FreqCase>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FreqCaseName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FreqCaseName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FreqCaseID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FreqCaseID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FreqCaseID })
+        </td>
+    </tr>
+}
+
+</table>
